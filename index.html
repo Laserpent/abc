@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#1a82d1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>abc</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+        }
+        html,body{
+            background-color: #f7f7f7;
+        }
+        img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .header{
+            position: fixed;
+            display: flex;
+            width: 100%;
+            z-index: 999;
+        }
+        .content{
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+        .cover_a {
+            position: absolute;
+            top: 25%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6%;
+            width: 100%;
+            z-index: 3;
+        }
+        .cover_b {
+            position: absolute;
+            top: 31%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15%;
+            width: 100%;
+            z-index: 2;
+        }
+        .cover_c {
+            position: absolute;
+            top: 57%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 7%;
+            width: 100%;
+            z-index: 3;
+        }
+        .name{
+            position: absolute;
+            top: 49.8%;
+            left: 0%;
+            width: 100%;
+            font-size: 0vw;
+            text-align: center;
+        }
+        .station{
+            font-size: 9.6vw;
+        }
+        .idnum{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            font-size: 0vw;
+            color: #fff;
+        }
+        .date{
+            position: absolute;
+            top: 58.6%;
+            left: 0%;
+            width: 100%;
+            font-size: 0vw;
+            text-align: center;
+        }
+        #before_sec{
+            font-size: 5.9vw;
+            color: #f00;
+            user-select: none;
+        }
+        #sec{
+            font-size: 5.9vw;
+            color: #f00;
+            user-select: none;
+        }
+        #test{
+            position: absolute;
+            top: 37.7%;
+            left: 8%;
+            width: 100%;
+            color: #f00;
+            font-size: 4.1vw;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="./images/head.png" />
+    </header>
+    <div class="content">
+        <img src="./images/content.png" />
+        <div class="cover_a"
+        onclick="window.open('https://laserpent.github.io/test/','_self')"
+        ></div>
+        <div class="cover_b"></div>
+        <div class="cover_c"></div>
+        <div class="text">
+            <div class="name">
+                <span contenteditable="true" class="station">广埠屯</span>
+                <span class="station">站</span>
+            </div>
+            <div class="date">
+                <span id="before_sec"></span>
+                <span id="sec"></span>
+            </div>
+            <span id="test"></span>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function showDate(){
+        var d = new Date();
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+        var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+        document.getElementById("before_sec").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " +  hour + ":" + min + ":");
+    }
+    function showSec(){
+        var d = new Date();
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+        var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+        document.getElementById("sec").innerHTML = (sec);
+    }
+    function showTest(){
+        var d = new Date();
+        d.setTime(d.getTime()-24*60*60*1000-17*60*1000);
+        var month = ((d.getMonth() + 1) < 10) ? ("0" + (d.getMonth() + 1)) : (d.getMonth() + 1);
+        var date = (d.getDate() < 10) ? ("0" + d.getDate()) : d.getDate();
+        var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+        var min = (date < 7) ? (date + 53) : (date * 2 - 13);
+        min = (min < 10) ? ("0" + min) : min;
+        document.getElementById("test").innerHTML = (d.getFullYear() + "-" + month + "-" + date + " " + 12 + ":" + min);
+    }
+    showTest()
+    setInterval(showDate, 1000)
+    setInterval(showSec, 1000)
+</script>
+</html>
