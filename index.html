@@ -61,23 +61,25 @@
             width: 100%;
             z-index: 3;
         }
+        #test{
+            position: absolute;
+            top: 37.7%;
+            left: 8%;
+            color: #fff;
+            font-size: 4.1vw;
+            user-select: none;
+        }
         .name{
             position: absolute;
             top: 49.8%;
             left: 0%;
             width: 100%;
+            color: #333333;
             font-size: 0vw;
             text-align: center;
         }
         .station{
             font-size: 9.6vw;
-        }
-        .idnum{
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            font-size: 0vw;
-            color: #fff;
         }
         .date{
             position: absolute;
@@ -89,21 +91,12 @@
         }
         #before_sec{
             font-size: 5.9vw;
-            color: #f00;
+            color: #666666;
             user-select: none;
         }
         #sec{
             font-size: 5.9vw;
-            color: #f00;
-            user-select: none;
-        }
-        #test{
-            position: absolute;
-            top: 37.7%;
-            left: 8%;
-            width: 100%;
-            color: #f00;
-            font-size: 4.1vw;
+            color: #666666;
             user-select: none;
         }
     </style>
@@ -121,6 +114,7 @@
         <div class="cover_b"></div>
         <div class="cover_c"></div>
         <div class="text">
+            <span id="test"></span>
             <div class="name">
                 <span contenteditable="true" class="station">广埠屯</span>
                 <span class="station">站</span>
@@ -129,7 +123,6 @@
                 <span id="before_sec"></span>
                 <span id="sec"></span>
             </div>
-            <span id="test"></span>
         </div>
     </div>
 </body>
