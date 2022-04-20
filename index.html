@@ -61,7 +61,24 @@
             width: 100%;
             z-index: 2;
         }
-        .cover-d {
+        #cover-p{
+            position: absolute;
+            top: 44%;
+            width: 100%;
+            z-index: 2;
+            display: none;
+        }
+        #rotater{
+            position: absolute;
+            top: 58%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8%;
+            width: 50%;
+            z-index: 3;
+        }
+        #toggler{
             position: absolute;
             top: 80%;
             bottom: 0;
@@ -71,13 +88,6 @@
             width: 50%;
             z-index: 3;
         }
-        #cover-p{
-            position: absolute;
-            top: 44%;
-            width: 100%;
-            z-index: 2;
-            display: none;
-        }
         #test{
             position: absolute;
             top: 37.7%;
@@ -86,14 +96,14 @@
             font-size: 4.1vw;
             user-select: none;
         }
-        .method{
+        #method{
             position: absolute;
             top: 45.1%;
             left: 8.1%;
             color: #333333;
             font-size: 4.7vw;
         }
-        .name{
+        .name-area{
             position: absolute;
             top: 49.8%;
             left: 0%;
@@ -102,8 +112,9 @@
             font-size: 0vw;
             text-align: center;
         }
-        .station{
+        #name{
             font-size: 9.6vw;
+            text-transform:uppercase;
         }
         .date{
             position: absolute;
@@ -137,15 +148,18 @@
         ></div>
         <div class="cover-b"></div>
         <div class="cover-c"></div>
-        <div class="cover-d"
+        <div id="rotater"
+        onclick="rotate()"
+        ></div>
+        <div id="toggler"
         onclick="toggle()"
         ></div>
         <div class="text">
             <span id="test"></span>
             <div id="info">
-                <span contenteditable="true" class="method">地铁站</span>
-                <div class="name">
-                    <span contenteditable="true" class="station">广埠屯站</span>
+                <span contenteditable="true" id="method">地铁站</span>
+                <div class="name-area">
+                    <span contenteditable="true" id="name">广埠屯站</span>
                 </div>
             </div>
             <div class="date">
@@ -189,16 +203,38 @@
     setInterval(showDate, 1000)
     setInterval(showSec, 1000)
 
-    function toggle(){
-            var cover = document.getElementById("cover-p");
-            var info = document.getElementById("info");
-            if(cover.style.display == 'block'){
-                cover.style.display = 'none';
-                info.style.display = 'block';
-            }else{
-                cover.style.display = 'block';
-                info.style.display = 'none';
-            }
+    var colt = 1;
+    function rotate(){
+        if(colt > 2) colt = 1;
+        else colt = colt + 1;
+        switch (colt){
+            case 1:
+                document.getElementById("method").innerHTML="地铁站";
+                document.getElementById("name").innerHTML="广埠屯站";
+                break;
+            case 2:
+                document.getElementById("method").innerHTML="公交车";
+                document.getElementById("name").innerHTML="鄂ARJ817";
+                break;
+            case 3:
+                document.getElementById("method").innerHTML="出租车";
+                document.getElementById("name").innerHTML="鄂AXK641";
+                break;
         }
+    }
+    function toggle(){
+        var cover = document.getElementById("cover-p");
+        var info = document.getElementById("info");
+        var rotater = document.getElementById("rotater");
+        if(cover.style.display == 'block'){
+            cover.style.display = 'none';
+            info.style.display = 'block';
+            rotater.style.display = 'block';
+        }else{
+            cover.style.display = 'block';
+            info.style.display = 'none';
+            rotater.style.display = 'none';
+        }
+    }
 </script>
 </html>
