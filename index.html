@@ -78,6 +78,16 @@
             width: 50%;
             z-index: 3;
         }
+        #player{
+            position: absolute;
+            top: 58%;
+            bottom: 0;
+            left: 50%;
+            right: 0;
+            height: 8%;
+            width: 50%;
+            z-index: 3;
+        }
         #toggler{
             position: absolute;
             top: 80%;
@@ -151,6 +161,9 @@
         <div id="rotater"
         onclick="rotate()"
         ></div>
+        <div id="player"
+        onclick="player()"
+        ></div>
         <div id="toggler"
         onclick="toggle()"
         ></div>
@@ -204,6 +217,7 @@
     setInterval(showSec, 1000)
 
     var colt = 1;
+    var film = 1;
     function rotate(){
         if(colt > 2) colt = 1;
         else colt = colt + 1;
@@ -219,6 +233,21 @@
             case 3:
                 document.getElementById("method").innerHTML="出租车";
                 document.getElementById("name").innerHTML="鄂AXK641";
+                break;
+        }
+    }
+    function player(){
+        if(film > 2) film = 1;
+        else film = film + 1;
+        switch (film){
+            case 1:
+                document.getElementById("name").innerHTML="广埠屯站";
+                break;
+            case 2:
+                document.getElementById("name").innerHTML="东亭站";
+                break;
+            case 3:
+                document.getElementById("name").innerHTML="街道口站";
                 break;
         }
     }
